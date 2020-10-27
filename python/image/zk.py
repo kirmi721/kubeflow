@@ -8,7 +8,7 @@ import pymysql
 import datetime
 import json
 
-file_name = './zkhiveconnection.txt'
+file_name = 'zkhiveconnection.txt'
 fo = open(file_name,'r')
 parameter = fo.readlines()
 fo.close()
