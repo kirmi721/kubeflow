@@ -8,6 +8,7 @@ RUN apt-get update && \
         build-essential \
         python-dev \
         libsasl2-dev \
+	cyrus-sasl \
         make \
         gcc \
     && pip install --no-cache-dir -r requirements.txt \
