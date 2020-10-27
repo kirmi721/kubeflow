@@ -1,1 +1,1 @@
-chinesecalendar==1.4.1
+chinesecalendar==1.4.0
