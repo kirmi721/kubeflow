@@ -38,6 +38,6 @@ RUN ln -s /usr/local/python3/bin/pip3.7 /usr/bin/pip3
 RUN pip3 install --upgrade pip
 COPY requirements.txt /
 COPY pyhiveclient.py /usr/local/python3/lib/python3.7
-COPY zk.py /usr/local/python3/lib/python3.7/
+COPY zk.py /usr/local/python3/lib/python3.7
 RUN pip3 install --no-cache-dir -r requirements.txt
 RUN rm -f Python-3.7.0 && rm -rf Python-3.7.0.tgz
