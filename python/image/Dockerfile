@@ -1,28 +1,16 @@
 FROM centos:7
 WORKDIR /
-
-RUN yum -y install wget zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel
+RUN yum -y install gcc automake autoconf libtool make wget zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel gcc-c++ python-devel.x86_64 cyrus-sasl-devel.x86_64
 RUN wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz
 RUN tar -zxvf Python-3.7.0.tgz
-RUN mkdir /usr/local/python3
-RUN cd Python-3.7.0
-RUN ./configure --prefix=/usr/local/python3 && make && make install
+RUN ./Python-3.7.0/configure --prefix=/usr/local/python3 
+RUN ./Python-3.7.0/make 
+RUN ./Python-3.7.0/make install
 RUN ln -s /usr/local/python3/bin/python3.7 /usr/bin/python3
 RUN ln -s /usr/local/python3/bin/pip3.7 /usr/bin/pip3
-
+RUN pip3 install --upgrade pip
 COPY requirements.txt /
 COPY pyhiveclient.py /usr/local/lib/python3.7
 COPY zk.py /usr/local/lib/python3.7
 COPY zkhiveconnection.txt /usr/local/lib/python3.7
-RUN apt-get update && \
-    apt-get install -y \
-        build-essential \
-        python-dev \
-        libsasl2-dev \
-        cyrus-sasl \
-        make \
-        gcc \
-    && pip install --no-cache-dir -r requirements.txt \
-    && apt-get remove -y --purge make gcc build-essential python-dev libsasl2-dev  \
-    && apt-get autoremove -y \
-    && rm -rf /var/lib/apt/lists/*
+RUN pip3 install --no-cache-dir -r requirements.txt
