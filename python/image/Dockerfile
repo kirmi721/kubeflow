@@ -1,31 +1,6 @@
 FROM centos:7
 WORKDIR /
-RUN yum -y install /
-	gcc / 
-	automake /
-	autoconf /
-	libtool /
-	make /
-	wget /
-	zlib-devel /
-	bzip2-devel /
-	openssl-devel /
-	ncurses-devel /
-	sqlite-devel /
-	readline-devel /
-	tk-devel /
-	gdbm-devel /
-	db4-devel /
-	libpcap-devel /
-	xz-devel /
-	libffi-devel /
-	gcc-c++ /
-	python-devel.x86_64 /
-	cyrus-sasl-devel.x86_64 /
-	cyrus-sasl-devel /
-	cyrus-sasl-gssapi /
-	cyrus-sasl-md5 /
-	cyrus-sasl-plain
+RUN yum -y install gcc automake autoconf libtool make wget zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel gcc-c++ python-devel.x86_64 cyrus-sasl-devel.x86_64 cyrus-sasl-devel cyrus-sasl-gssapi cyrus-sasl-md5 cyrus-sasl-plain
 RUN wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz
 RUN tar -zxvf Python-3.7.0.tgz
 RUN cd Python-3.7.0
