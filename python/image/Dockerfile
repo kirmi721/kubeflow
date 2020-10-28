@@ -1,7 +1,7 @@
 FROM centos:7
 WORKDIR /
 
-RUN yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel
+RUN yum -y install wget zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel
 RUN wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz
 RUN tar -zxvf Python-3.7.0.tgz
 RUN mkdir /usr/local/python3
